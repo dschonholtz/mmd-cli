@@ -1,0 +1,36 @@
+[project]
+name = "mmd"
+version = "0.1.0"
+description = "MultiMagicDungeon dev CLI — wraps UBT, test runner, log streaming, deploy, and Supabase tooling"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer>=0.12",
+    "rich>=13",
+]
+
+[project.scripts]
+mmd = "mmd.main:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8",
+    "pytest-subprocess>=1.5",
+    "ruff>=0.4",
+    "mypy>=1.10",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
